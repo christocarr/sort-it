@@ -16,6 +16,11 @@ router.route('/add').post((req, res) => {
     username,
     allergens,
   });
+
+  newRestaurant
+    .save()
+    .then(() => res.json('Restaurant added!'))
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;
